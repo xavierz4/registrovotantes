@@ -5,6 +5,7 @@ import ApolloClient from 'apollo-boost';
 //importar componentes
 
 import Header from  './componentes/Header';
+import Clientes from  './componentes/Clientes';
 
 
 const client = new ApolloClient ({
@@ -20,6 +21,7 @@ class App extends Component {
     return (
      <ApolloProvider client={client}>
         <Header />
+        <Clientes />
      </ApolloProvider>
     );
   }
