@@ -4,8 +4,8 @@ const Header = () => (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex">
 
         <div className="container">
-            <a className="navbar-brand text-light font-weight-bold">ASPIRA</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion" aria-controls="navegacion" aria-expanded="false" aria-laberl="Toggle navigation">
+            <a className="navbar-brand text-light font-weight-bold">CRM</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
 
