@@ -10,3 +10,5 @@ mutation CrearElector($input:ElectorInput){
     }
   }
   `;
+
+  
