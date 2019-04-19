@@ -6,7 +6,7 @@ mutation CrearElector($input:ElectorInput){
       id
       nombre
       apellido
-      cedula
+      
     }
   }
   `;
