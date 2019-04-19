@@ -37,7 +37,9 @@ class NuevoCliente extends Component {
                                         email, 
                                         tipo,   
                                     };
-                                    console.log(input)
+                                    crearCliente({
+                                        variables: {input}
+                                    })
                                 }}
                             
                             >
