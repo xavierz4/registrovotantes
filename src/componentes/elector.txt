@@ -1,0 +1,235 @@
+______resolvers
+
+
+import mongoose from 'mongoose';
+import {Elector} from './db';
+import {rejects} from 'assert';
+
+export const resolvers = {
+    Query: {
+
+        getElectores: (root, {limite}) => {
+            return Electores.find({}).limit(limite)
+
+        },
+
+        getElector: (root, {id}) => {
+            return new Promise((resolve, object) =>{
+                Electores.findById(id,(error, elector) =>{
+                    if(error) rejects(error)
+                    else resolve(elector)
+                });
+            })
+            return new Elector (id, electorDB[id]);
+
+        },
+    },
+    Mutation:{
+        crearElector : (root, {input}) => {
+            const nuevoCliente = new Electores({
+               
+                nombre : input.nombre,
+                apellido : input.apellido,
+                cedula : input.empresa,
+                edad : input.edad,
+                genero : input.genero,
+                email : input.email,
+                rol : input.rol,
+                pedidos : input.pedidos
+
+            });
+            nuevoElector.id = nuevoElector._id;
+
+            return new Promise((resolve, object) => {
+                nuevoElector.save((error) => {
+                    if(error) rejects (error)
+                    else resolve(nuevoElector)
+                })
+            });
+      
+        },
+
+        actualizarElector : (root, {input}) => {
+            return new Promise((resolve, object) => {
+                Electores.findOneAndUpdate({_id: input.id}, input, {new: true}, (error, elector) =>
+                {
+                    if(error) rejects (error)
+                    else resolve (elector)
+                });
+                
+            });
+
+            
+            },
+
+        eliminarElector : (root, {id}) => {
+        return new Promise((resolve, object) => {
+            Electores.findOneAndRemove({_id: id}, (error) =>
+            {
+                if(error) rejects (error)
+                else resolve ("se Elimino Correctamente")
+            })
+            
+        });
+            
+        }
+    
+    }
+    }
+--------------------------------
+
+
+-------------------
+db.js
+
+
+
+import mongoose from 'mongoose';
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://localhost/electores', {useNewUrlParser:true});
+
+const electoresSchema = new mongoose.Schema({
+    nombre : String,
+    apellido : String,
+    cedula : Number,
+    edad : Number,
+    genero: String,
+    email: String,
+    rol: String,
+    pedidos : Array
+
+
+});
+
+const Electores = mongoose.model('electores', electoresSchema);
+export {Electores};
+
+
+___------------
+
+schema.genero
+
+type Elector{
+    id: ID
+    nombre: String
+    apellido: String
+    cedula: Int
+    edad: Int
+    genero:String
+    email: String
+    rol: String
+    
+    
+}
+
+
+
+type Email{
+    email:String
+}
+
+type Pedido{
+    producto: String
+    precio: Int
+}
+
+enum rolElector{
+    VOTANTE
+    LIDER DE NUCLEO
+    COORDINADOR
+    AMBOS
+}
+
+
+type Query{
+    getElector(limite: Int) : [Elector]
+    getElector (id:ID) : Elector
+}
+
+input PedidoInput{
+    producto: String!
+    precio: Int!
+}
+
+input EmailInput{
+    email: String
+}
+
+
+input ElectorInput{
+    id: ID
+    nombre: String!
+    apellido: String!
+    cedula: Int!
+    edad: Int!
+    genero: String!
+    email:String!
+    rol: rolElector
+    pedidos: [PedidoInput]
+    
+}
+
+
+
+type Mutation{
+    crearElector(input: ElectorInput) : Elector
+    actualizarElector(input: ElectorInput): Elector
+    eliminarElector(id:ID!): String 
+    
+
+}
+
+
+
+----------------
+
+app----
+
+import React, { Component,Fragment } from 'react';
+import {ApolloProvider} from 'react-apollo';
+import ApolloClient from 'apollo-boost';
+
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+//importar componentes
+
+import Header from  './componentes/Header';
+import Electores from './componentes/Electores';
+import EditarElector from './componentes/EditarElector';
+import NuevoElector from './componentes/NuevoElector';
+
+const client = new ApolloClient ({
+    uri: "http://localhost:4000/graphql",
+    onError: ({networkError, graphQLErrors}) =>{
+      console.log('graphQLErrors', graphQLErrors);
+      console.log('networkError', networkError);
+    }
+})
+
+class App extends Component {
+  render() {
+    return (
+     <ApolloProvider client={client}>
+     
+      <Router>
+        <Fragment>
+          <Header />
+          <div className="container">
+            <Switch>
+              <Route exact path = "/" component ={Electores} />
+              <Route exact path = "/elector/editar/:id" component ={EditarElector} />
+              <Route exact path = "/elector/nuevo" component ={NuevoElector} />
+            </Switch>
+          </div>
+        </Fragment>
+      </Router>
+        
+        
+     </ApolloProvider>
+    );
+  }
+}
+
+export default App;
