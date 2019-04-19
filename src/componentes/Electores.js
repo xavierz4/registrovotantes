@@ -15,7 +15,7 @@ const Contactos = () => (
             
         return(
             <Fragment>
-                <h2 className="text-center mt-4">Listado Electores</h2>
+                <h2 className="text-center">Listado Votantes</h2>
                 <ul className="list-group mt-4">
                     {data.getElectores.map(item =>(
                         <li key={item.id} className="list-group-item">
@@ -24,8 +24,8 @@ const Contactos = () => (
                                     {item.nombre} {item.apellido} 
                                 </div>
                                 <div className="col-md-4 d-flex justify-content-end">
-                                <Link to={`/elector/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Elector</Link>
-                                    
+                                    <Link to={`/elector/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Electores</Link>
+                                
                                 </div>
 
                             </div>
