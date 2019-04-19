@@ -1,11 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link} from'react-router-dom';
 
 const Header = () => (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex mb-4">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between d-flex">
 
         <div className="container">
-         <Link to="/" className="navbar-brand text-light font-weight-bold">CRM</Link>
+            <Link to="/" className="navbar-brand text-light font-weight-bold">ASPIRA</Link>
+            
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
@@ -13,10 +14,9 @@ const Header = () => (
             <div className="collapse navbar-collapse" id="navegacion">
                 <ul className="nabvar-nav ml-auto text-right">
                     <li className="nav-item active">
-                        <Link to="/cliente/nuevo" className="btn btn-success">
-                            Nuevo Cliente
-                        </Link>
-                        
+                    <Link to="/elector/nuevo" className="btn btn-success">
+                        Nuevo Elector
+                    </Link>
                     </li>
                 </ul>
             </div>

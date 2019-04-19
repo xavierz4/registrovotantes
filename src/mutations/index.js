@@ -1,11 +1,12 @@
 import gql from 'graphql-tag';
 
-export const NUEVO_CLIENTE = gql`
-mutation CrearCliente($input:ClienteInput){
-    crearCliente(input:$input){
+export const NUEVO_ELECTOR = gql`
+mutation CrearElector($input:ElectorInput){
+    crearElector(input:$input){
       id
       nombre
       apellido
+      cedula
     }
   }
   `;

@@ -7,9 +7,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 //importar componentes
 
 import Header from  './componentes/Header';
-import Clientes from './componentes/Clientes';
-import EditarCliente from './componentes/EditarCliente';
-import NuevoCliente from './componentes/NuevoCliente';
+import Electores from './componentes/Electores';
+import EditarElector from './componentes/EditarElector';
+import NuevoElector from './componentes/NuevoElector';
 
 const client = new ApolloClient ({
     uri: "http://localhost:4000/graphql",
@@ -29,9 +29,9 @@ class App extends Component {
           <Header />
           <div className="container">
             <Switch>
-              <Route exact path = "/" component ={Clientes} />
-              <Route exact path = "/cliente/editar/:id" component ={EditarCliente} />
-              <Route exact path = "/cliente/nuevo" component ={NuevoCliente} />
+              <Route exact path = "/" component ={Electores} />
+              <Route exact path = "/elector/editar/:id" component ={EditarElector} />
+              <Route exact path = "/elector/nuevo" component ={NuevoElector} />
             </Switch>
           </div>
         </Fragment>

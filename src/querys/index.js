@@ -1,12 +1,12 @@
 import gql from 'graphql-tag';
 
-export const  CLIENTES_QUERY = gql `
+export const  ELECTORES_QUERY = gql `
 {
-    getClientes{
+    getElectores{
       id
       nombre
       apellido
-      empresa
+      cedula
     }
   }`;
 
