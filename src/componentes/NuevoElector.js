@@ -28,7 +28,7 @@ class NuevoElector extends Component {
                                 className="col-md-8 m-3"
                                 onSubmit={e =>{
                                     e.preventDefault();
-                                    const {nombre, apellido, cedula, edad, genero, email } = this.state.cliente;
+                                    const {nombre, apellido, cedula, edad, genero, email } = this.state.elector;
                                     
                                     const input = {
                                         nombre,
@@ -134,7 +134,23 @@ class NuevoElector extends Component {
                                             }}
                                         />
                                     </div>
-                                
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Genero</label>
+                                        <input
+                                            type="text"
+                                            class="form-control" 
+                                            placeholder="Genero"
+                                            onChange={e =>{
+                                                this.setState({
+                                                    elector:{
+                                                        ...this.state.elector,
+                                                        genero: e.target.value
+                                                    }
+                                                })
+                                            }}
+                                        />
+                                    </div>
 
                                 </div>
                             
