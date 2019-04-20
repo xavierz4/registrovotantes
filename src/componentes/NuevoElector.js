@@ -14,15 +14,25 @@ class NuevoElector extends Component {
             genero:'',
             email:''
            
-        }
+        },
+
+        error:false
      }
     render() {
+        const {error} = this.state;
+        let respuesta = (error) ? <p className="alert alert-warning p-3 text-center" >Todos los campos son Obligatorios</p> : '';
+
         return (
 
             <Fragment>
                     <h2 className="text-center">Nuevo Elector</h2>   
+                    {respuesta}
                     <div className="row justify-content-center">
-                     <Mutation mutation={NUEVO_ELECTOR}>
+                     <Mutation 
+                        mutation={NUEVO_ELECTOR}
+                        onCompleted={() => this.props.history.push('/')}
+                        
+                     >
                         {crearElector =>(
                             <form
                                 className="col-md-8 m-3"
@@ -30,6 +40,17 @@ class NuevoElector extends Component {
                                     e.preventDefault();
                                     const {nombre, apellido, cedula, edad, genero, email } = this.state.elector;
                                     
+                                    if (nombre === '' || apellido === '' || cedula === '' || edad === '' || genero === '') {
+                                        this.setState({
+                                            error: true
+                                        });
+                                        return;
+                                    }
+
+                                    this.setState({
+                                        error: false
+                                    });
+
                                     const input = {
                                         nombre,
                                         apellido,
@@ -154,7 +175,7 @@ class NuevoElector extends Component {
 
                                 </div>
                             
-                                <button type="submit" className="btn btn-primary float-right">Guardar Cambios</button>
+                                <button type="submit" className="btn btn-primary float-right">Registrar Elector</button>
                         </form>
                         )}
                     </Mutation>
