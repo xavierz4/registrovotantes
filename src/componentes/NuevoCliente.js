@@ -20,8 +20,8 @@ class NuevoCliente extends Component {
 
      }
 
-     leerCampo = i => e =>{
-        const nuevoEmail = this.state.emails.map((email, index) =>{
+     leerCampo = i => e => {
+        const nuevoEmail = this.state.emails.map((email, index) => {
             if (i !== index) return email;
             return {
                 ...email,
@@ -29,7 +29,7 @@ class NuevoCliente extends Component {
             }
         });
         this.setState({
-            email: nuevoEmail
+            emails: nuevoEmail
         })
     }
 
@@ -70,10 +70,18 @@ class NuevoCliente extends Component {
                                     e.preventDefault();
                                     const {nombre, apellido, empresa, edad, tipo } = this.state.cliente;
                                     const {emails} = this.state;
+
+                                    if (nombre === '' || apellido === '' || empresa === '' || edad === '' || tipo === '') {
+                                        this.setState({
+                                            error: true
+                                        });
+                                        return;
+                                    }
+
+                                    this.setState({
+                                        error: false
+                                    });
                                     
-                                    if(nombre)
-
-
                                     const input = {
                                         nombre,
                                         apellido,
@@ -143,16 +151,11 @@ class NuevoCliente extends Component {
                                             />
                                     </div>
 
-                               {
-                                   /*Recorrer email, ingresar, eliminar y leer campos
 
-                                    */                             
-                               }
-
-                                {this.state.emails.map((input, index)=>
+                                {this.state.emails.map((input, index)=>(
 
                                     <div key={index} className="form-group col-md-12">
-                                        <label>Correo {index +1}</label>
+                                        <label>Correo {index + 1}</label>
 
                                         <div className="input-group">
                                             <input
@@ -167,21 +170,20 @@ class NuevoCliente extends Component {
                                                 onClick={this.eliminarCampo(index)}
                                                     type="button"
                                                     className="btn btn-danger"
-                                                >&times;
-
-                                                   Eliminar 
-                                                </button>
+                                                >&times; Eliminar </button>
                                             </div>
                                         </div>
                                     </div>
-                                    )}
+                                    ))}
                                   <div className="form-group d-flex justify-content-center col-md-12">
                                             <button
                                             onClick={this.nuevoCampo}
                                              type="button"
                                              className="btn btn-warning"
                                              
-                                             >Agregar Email</button>
+                                             >Agregar Email
+                                             
+                                             </button>
                                   </div>
 
                                 </div>
