@@ -6,8 +6,8 @@ import{Link} from 'react-router-dom';
 import { ELECTORES_QUERY } from '../querys';
 
 const Contactos = () => (
-    <Query query={ELECTORES_QUERY} >
-        {({ loading, error, data }) => {
+    <Query query={ELECTORES_QUERY} pollInterval={500}>
+        {({ loading, error, data, startPolling, stopPolling }) => {
             if(loading) return "cargando...";
             if (error) return `Error: ${error.message}`;
             console.log(data.getElectores);
@@ -15,7 +15,7 @@ const Contactos = () => (
             
         return(
             <Fragment>
-                <h2 className="text-center">Listado Votantes</h2>
+                <h2 className="text-center">Listado de Electores</h2>
                 <ul className="list-group mt-4">
                     {data.getElectores.map(item =>(
                         <li key={item.id} className="list-group-item">
@@ -24,7 +24,7 @@ const Contactos = () => (
                                     {item.nombre} {item.apellido} 
                                 </div>
                                 <div className="col-md-4 d-flex justify-content-end">
-                                    <Link to={`/elector/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Electores</Link>
+                                    <Link to={`/elector/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Elector</Link>
                                 
                                 </div>
 
