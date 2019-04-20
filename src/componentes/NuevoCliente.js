@@ -15,8 +15,40 @@ class NuevoCliente extends Component {
             tipo:'',
         },
 
-        error:false
+        error:false,
+        emails:[]
+
      }
+
+     leerCampo = i => e =>{
+        const nuevoEmail = this.state.emails.map((email, index) =>{
+            if (i !== index) return email;
+            return {
+                ...email,
+               email: e.target.value
+            }
+        });
+        this.setState({
+            email: nuevoEmail
+        })
+    }
+
+
+     nuevoCampo = () =>{
+       this.setState({
+           emails: this.state.emails.concat([{email:''}])
+       }) 
+     }
+
+     eliminarCampo = i => () => {
+         this.setState({
+            emails: this.state.emails.filter((email, index) => i !== index)
+         })
+     }
+
+    
+
+
     render() {
         const {error} = this.state;
         let respuesta = (error) ? <p className="alert alert-warning p-3 text-center" >Todos los campos son Obligatorios</p> : '';
@@ -36,15 +68,19 @@ class NuevoCliente extends Component {
                                 className="col-md-8 m-3"
                                 onSubmit={e =>{
                                     e.preventDefault();
-                                    const {nombre, apellido, empresa, edad, email, tipo } = this.state.cliente;
+                                    const {nombre, apellido, empresa, edad, tipo } = this.state.cliente;
+                                    const {emails} = this.state;
                                     
+                                    if(nombre)
+
+
                                     const input = {
                                         nombre,
                                         apellido,
                                         empresa,
                                         edad: Number(edad),
-                                        email, 
-                                        tipo,   
+                                        emails, 
+                                        tipo   
                                     };
                                     crearCliente({
                                         variables: {input}
@@ -90,7 +126,7 @@ class NuevoCliente extends Component {
                                 </div>
                                 
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group  col-md-12">
                                         <label>Empresa</label>
                                         <input 
                                             type="text" 
@@ -106,23 +142,48 @@ class NuevoCliente extends Component {
                                             }}
                                             />
                                     </div>
-                                
-                                    <div class="form-group col-md-6">
-                                        <label>Email</label>
-                                        <input 
+
+                               {
+                                   /*Recorrer email, ingresar, eliminar y leer campos
+
+                                    */                             
+                               }
+
+                                {this.state.emails.map((input, index)=>
+
+                                    <div key={index} className="form-group col-md-12">
+                                        <label>Correo {index +1}</label>
+
+                                        <div className="input-group">
+                                            <input
+                                            onChange={this.leerCampo(index)}
                                             type="email"
-                                            class="form-control"
                                             placeholder="Email"
-                                            onChange={e =>{
-                                                this.setState({
-                                                    cliente:{
-                                                        ...this.state.cliente,
-                                                        email: e.target.value
-                                                    }
-                                                })
-                                            }} 
-                                        />
+                                            className="form-control"
+                                            />
+                                            
+                                            <div className="input-group-append">
+                                                <button
+                                                onClick={this.eliminarCampo(index)}
+                                                    type="button"
+                                                    className="btn btn-danger"
+                                                >&times;
+
+                                                   Eliminar 
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
+                                    )}
+                                  <div className="form-group d-flex justify-content-center col-md-12">
+                                            <button
+                                            onClick={this.nuevoCampo}
+                                             type="button"
+                                             className="btn btn-warning"
+                                             
+                                             >Agregar Email</button>
+                                  </div>
+
                                 </div>
 
                                 <div class="form-row">
@@ -144,7 +205,7 @@ class NuevoCliente extends Component {
                                     </div>
                                 
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group  col-md-6">
                                     <label>Tipo Cliente</label>
                                     <select 
                                         onChange={e =>{
