@@ -38,7 +38,7 @@ class NuevoElector extends Component {
                                 className="col-md-8 m-3"
                                 onSubmit={e =>{
                                     e.preventDefault();
-                                    const {nombre, apellido, cedula, edad, genero, email } = this.state.elector;
+                                    const {nombre, apellido, cedula, edad, genero, email, genero } = this.state.elector;
                                     
                                     if (nombre === '' || apellido === '' || cedula === '' || edad === '' || genero === '') {
                                         this.setState({
@@ -57,7 +57,8 @@ class NuevoElector extends Component {
                                         cedula: Number(cedula),
                                         edad: Number(edad),
                                         genero,
-                                        email
+                                        email,
+                                        genero
                                     };
                                     crearElector({
                                         variables: {input}
