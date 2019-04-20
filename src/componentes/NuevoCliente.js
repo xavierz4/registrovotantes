@@ -13,15 +13,24 @@ class NuevoCliente extends Component {
             edad:'',
             email:'',
             tipo:'',
-        }
+        },
+
+        error:false
      }
     render() {
+        const {error} = this.state;
+        let respuesta = (error) ? <p className="alert alert-warning p-3 text-center" >Todos los campos son Obligatorios</p> : '';
+
         return (
 
             <Fragment>
                     <h2 className="text-center">Nuevo Cliente</h2>   
+                    {respuesta}
                     <div className="row justify-content-center">
-                     <Mutation mutation={NUEVO_CLIENTE}>
+                     <Mutation
+                         mutation={NUEVO_CLIENTE}
+                         onCompleted={() => this.props.history.push('/')}
+                         >
                         {crearCliente =>(
                             <form
                                 className="col-md-8 m-3"
