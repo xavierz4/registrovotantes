@@ -10,3 +10,15 @@ export const  ELECTORES_QUERY = gql `
     }
   }`;
 
+
+export const  ELECTOR_QUERY = gql `
+
+    query ConsultarCliente($id: ID){
+      getCliente (id: $id){
+        nombre
+        apellido
+        cedula
+      
+    }
+
+  }`;
