@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class FormularioEditar extends Component {
 
     state =  {
-       
+        elector: this.props.elector,
+        //emails: this.props.cliente.emails
         // emails: []
 
     }
@@ -31,7 +32,9 @@ class FormularioEditar extends Component {
 
 
     render() { 
-
+            const {nombre, apellido, cedula, email, edad, genero} = this.state.elector;
+            
+            //const {emails} = this.state;
             // const {emails} = this.state;
            
             return (
@@ -44,6 +47,16 @@ class FormularioEditar extends Component {
                                 type="text"
                                 class="form-control" 
                                 placeholder="nombre"
+                                defaultValue={nombre}
+                                        onChange={e =>{
+                                           this.setState({
+                                            elector:{
+                                                ...this.state.elector,
+                                               nombre: e.target.value
+                                            }
+
+                                           })
+                                        }}
                             
                             />
                         </div>
@@ -53,6 +66,16 @@ class FormularioEditar extends Component {
                                 type="text" 
                                 class="form-control" 
                                 placeholder="Apellido"
+                                defaultValue={apellido}
+                                        onChange={e =>{
+                                           this.setState({
+                                            elector:{
+                                                ...this.state.elector,
+                                               apellido: e.target.value
+                                            }
+
+                                           })
+                                        }}
                             
                             />
                             
@@ -64,7 +87,17 @@ class FormularioEditar extends Component {
                             <input 
                                 type="text" 
                                 class="form-control" 
-                                placeholder="Cedula" 
+                                placeholder="Cedula"
+                                defaultValue={cedula}
+                                        onChange={e =>{
+                                           this.setState({
+                                            elector:{
+                                                ...this.state.elector,
+                                               cedula: e.target.value
+                                            }
+
+                                           })
+                                        }} 
                             
                                 />
                         </div>
@@ -75,6 +108,16 @@ class FormularioEditar extends Component {
                                 type="email"
                                 class="form-control"
                                 placeholder="Email"
+                                defaultValue={email}
+                                        onChange={e =>{
+                                           this.setState({
+                                            elector:{
+                                                ...this.state.elector,
+                                               email: e.target.value
+                                            }
+
+                                           })
+                                        }}
                             
                             />
                         </div>
@@ -87,6 +130,16 @@ class FormularioEditar extends Component {
                             type="text"
                             class="form-control" 
                             placeholder="Edad"
+                            defaultValue={edad}
+                                onChange={e =>{
+                                    this.setState({
+                                    elector:{
+                                        ...this.state.elector,
+                                        edad: e.target.value
+                                    }
+
+                                    })
+                                }}
                             
                         />
                     </div>
@@ -94,7 +147,19 @@ class FormularioEditar extends Component {
                     <div className="form-group col-md-6">
                         <label>Genero</label>
                         <select 
-                        className="form-control">
+                        className="form-control"
+                        value={genero}
+                        onChange={e =>{
+                            this.setState({
+                            elector:{
+                                ...this.state.elector,
+                                genero: e.target.value
+                            }
+
+                            })
+                        }}
+                        >
+                        
                         <option value="">Elegir</option>
                         <option value="FEMENINO">FEMENINO</option>
                         <option value="MASCULINO">MASCULINO</option>
