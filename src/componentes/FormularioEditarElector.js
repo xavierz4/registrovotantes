@@ -35,6 +35,7 @@ class FormularioEditar extends Component {
             // const {emails} = this.state;
            
             return (
+                <div className="justify-content-center">
                 <form className="col-md-8 m-3">
                     <div className="form-row">
                         <div class="form-group col-md-6">
@@ -101,8 +102,10 @@ class FormularioEditar extends Component {
                     </div>
                   
                 </div>
+               
                 <button type="submit" className="btn btn-success float-right">Guardar Cambios</button>
             </form>
+            </div>
             )      
     }
 }
