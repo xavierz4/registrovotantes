@@ -16,7 +16,7 @@ class EditarElector extends Component {
             <Fragment>
                  
                 <h2  className="text-center">Editar Elector</h2>
-
+                <div className="row justify-content-center"> 
                 <Query query={ELECTOR_QUERY} variables= {{id}}>
                 {({loading, error, data}) =>{
                     if (loading) return 'cargando';
@@ -30,6 +30,7 @@ class EditarElector extends Component {
                  }}
 
             </Query>
+            </div>
             </Fragment>
         );
     }
