@@ -17,6 +17,12 @@ export const  CLIENTE_QUERY = gql `
         nombre
         apellido
         empresa
+        emails{
+          email
+        }
+        edad
+        tipo
+       
       
     }
 
