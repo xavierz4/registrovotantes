@@ -24,7 +24,7 @@ class EditarElector extends Component {
                         console.log(data);
                         return (
                             <FormularioEditarElector
-                            
+                            elector = {data.getElector}
                             
                             />
                         )

@@ -4,7 +4,7 @@ class FormularioEditar extends Component {
 
     state =  {
         elector: this.props.elector,
-        //emails: this.props.cliente.emails
+        email: this.props.elector.email
         // emails: []
 
     }
@@ -32,7 +32,7 @@ class FormularioEditar extends Component {
 
 
     render() { 
-            const {nombre, apellido, cedula, email, edad, genero} = this.state.elector;
+            const {nombre, apellido, cedula, edad, email, genero} = this.state.elector;
             
             //const {emails} = this.state;
             // const {emails} = this.state;

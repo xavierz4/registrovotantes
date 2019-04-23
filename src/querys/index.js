@@ -18,6 +18,10 @@ export const  ELECTOR_QUERY = gql `
         nombre
         apellido
         cedula
+        edad
+        genero
+        email
+
       
     }
 
