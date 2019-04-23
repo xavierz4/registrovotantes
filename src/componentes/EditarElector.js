@@ -17,19 +17,20 @@ class EditarElector extends Component {
                  
                 <h2  className="text-center">Editar Elector</h2>
                 <div className="row justify-content-center"> 
-                <Query query={ELECTOR_QUERY} variables= {{id}}>
-                {({loading, error, data}) =>{
-                    if (loading) return 'cargando';
-                    if (error) return `Error! ${error.message}`;
-                    return (
-                        <FormularioEditarElector
-                        
-                        
-                        />
-                    )
-                 }}
+                    <Query query={ELECTOR_QUERY} variables= {{id}}>
+                    {({loading, error, data}) =>{
+                        if (loading) return 'cargando';
+                        if (error) return `Error! ${error.message}`;
+                        console.log(data);
+                        return (
+                            <FormularioEditarElector
+                            
+                            
+                            />
+                        )
+                    }}
 
-            </Query>
+                </Query>
             </div>
             </Fragment>
         );
