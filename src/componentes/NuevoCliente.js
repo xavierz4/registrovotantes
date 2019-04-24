@@ -96,12 +96,12 @@ class NuevoCliente extends Component {
                                 }}
                             
                             >
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                <div className="form-row">
+                                    <div className="form-group col-md-6">
                                         <label>Nombre</label>
                                             <input 
                                             type="text"
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="nombre"
                                             onChange={e =>{
                                                 this.setState({
@@ -113,11 +113,11 @@ class NuevoCliente extends Component {
                                             }}
                                         />
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div className="form-group col-md-6">
                                         <label>Apellido</label>
                                         <input 
                                             type="text" 
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Apellido"
                                             onChange={e =>{
                                                 this.setState({
@@ -133,12 +133,12 @@ class NuevoCliente extends Component {
                                     </div>
                                 </div>
                                 
-                                <div class="form-row">
-                                    <div class="form-group  col-md-12">
+                                <div className="form-row">
+                                    <div className="form-group  col-md-12">
                                         <label>Empresa</label>
                                         <input 
                                             type="text" 
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Empresa" 
                                             onChange={e =>{
                                                 this.setState({
@@ -188,12 +188,12 @@ class NuevoCliente extends Component {
 
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                <div className="form-row">
+                                    <div className="form-group col-md-6">
                                         <label>Edad</label>
                                         <input
                                             type="text"
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Edad"
                                             onChange={e =>{
                                                 this.setState({
@@ -207,7 +207,7 @@ class NuevoCliente extends Component {
                                     </div>
                                 
 
-                                <div class="form-group  col-md-6">
+                                <div className="form-group  col-md-6">
                                     <label>Tipo Cliente</label>
                                     <select 
                                         onChange={e =>{
@@ -218,7 +218,7 @@ class NuevoCliente extends Component {
                                                 }
                                             })
                                         }}
-                                        class="form-control">
+                                        className="form-control">
                                     <option value="">Elegir</option>
                                     <option value="PREMIUM">PREMIUM</option>
                                     <option value="BASICO">BASICO</option>
