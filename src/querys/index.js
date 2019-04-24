@@ -15,6 +15,7 @@ export const  ELECTOR_QUERY = gql `
 
     query ConsultarElector($id: ID){
       getElector (id: $id){
+        id
         nombre
         apellido
         cedula

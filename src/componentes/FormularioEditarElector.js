@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import {ACTUALIZAR_CLIENTE} from '../mutations';
+import {Mutation} from 'react-apollo';
+
 class FormularioEditar extends Component {
 
     state =  {
