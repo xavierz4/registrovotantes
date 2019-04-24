@@ -15,4 +15,22 @@ mutation CrearElector($input:ElectorInput){
   }
   `;
 
+export const ACTUALIZAR_ELECTOR = gql`
+mutation actualizarElector ($input: ElectorInput){
+  actualizarElector (input: $input){
+    id
+    nombre
+    apellido
+    cedula
+    edad
+    email
+    genero
+    
+    
+  }
+}
+
+`;
+
+
   

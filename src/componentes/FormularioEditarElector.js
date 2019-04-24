@@ -41,8 +41,28 @@ class FormularioEditar extends Component {
             // const {emails} = this.state;
            
             return (
-                
-                <form className="col-md-8 m-3">
+                <Mutation mutation={ACTUALIZAR_CLIENTE}>
+
+                   {actualizarCliente =>(
+                        <form className="col-md-8 m-3" onSubmit={e => {
+                            e.preventDefault();
+
+                            const {id, nombre, apellido, cedula, edad, tipo} = this.state.cliente;
+                            const {emails} = this.state;
+                            const input = {
+                                id, 
+                                nombre,
+                                apellido,
+                                empresa,
+                                edad: Number(edad),
+                                tipo,
+                                emails
+                            
+                        }
+                            console.log(input);
+                        }}>  
+
+                 
                     <div className="form-row">
                         <div class="form-group col-md-6">
                             <label>Nombre</label>
@@ -173,7 +193,8 @@ class FormularioEditar extends Component {
                
                 <button type="submit" className="btn btn-success float-right">Guardar Cambios</button>
             </form>
-           
+             )}
+           </Mutation>
             )      
     }
 }
