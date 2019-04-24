@@ -12,7 +12,7 @@ class EditarCliente extends Component {
     render() {
 
             const { id } = this.props.match.params;
-            //console.log(id);
+        // console.log(id);
 
         return (
             <Fragment>

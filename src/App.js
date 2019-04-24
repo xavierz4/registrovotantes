@@ -1,4 +1,4 @@
-import React, { Component,Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import {ApolloProvider} from 'react-apollo';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
@@ -17,8 +17,8 @@ const client = new ApolloClient ({
       addTypename:false
     }),
     onError: ({networkError, graphQLErrors}) =>{
-      console.log('graphQLErrors', graphQLErrors);
-      console.log('networkError', networkError);
+      /* console.log('graphQLErrors', graphQLErrors);
+      console.log('networkError', networkError); */
     }
 })
 
