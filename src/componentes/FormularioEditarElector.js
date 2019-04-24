@@ -64,11 +64,11 @@ class FormularioEditar extends Component {
 
                  
                     <div className="form-row">
-                        <div class="form-group col-md-6">
+                        <div className="form-group col-md-6">
                             <label>Nombre</label>
                                 <input 
                                 type="text"
-                                class="form-control" 
+                                className="form-control" 
                                 placeholder="nombre"
                                 defaultValue={nombre}
                                         onChange={e =>{
@@ -87,7 +87,7 @@ class FormularioEditar extends Component {
                             <label>Apellido</label>
                             <input 
                                 type="text" 
-                                class="form-control" 
+                                className="form-control" 
                                 placeholder="Apellido"
                                 defaultValue={apellido}
                                         onChange={e =>{
@@ -105,11 +105,11 @@ class FormularioEditar extends Component {
                         </div>
                         </div>
                     <div className="form-row">
-                        <div class="form-group col-md-6">
+                        <div className="form-group col-md-6">
                             <label>Cedula</label>
                             <input 
                                 type="text" 
-                                class="form-control" 
+                                className="form-control" 
                                 placeholder="Cedula"
                                 defaultValue={cedula}
                                         onChange={e =>{
@@ -129,7 +129,7 @@ class FormularioEditar extends Component {
                             <label>Email</label>
                             <input 
                                 type="email"
-                                class="form-control"
+                                className="form-control"
                                 placeholder="Email"
                                 defaultValue={email}
                                         onChange={e =>{
@@ -151,7 +151,7 @@ class FormularioEditar extends Component {
                         <label>Edad</label>
                         <input
                             type="text"
-                            class="form-control" 
+                            className="form-control" 
                             placeholder="Edad"
                             defaultValue={edad}
                                 onChange={e =>{
