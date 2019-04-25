@@ -16,11 +16,11 @@ const client = new ApolloClient ({
     cache: new InMemoryCache({
       addTypename:false
     }),
-    onError: ({networkError, graphQLErrors}) =>{
-      /* console.log('graphQLErrors', graphQLErrors);
-      console.log('networkError', networkError); */
+    onError: ({networkError, graphQLErrors}) => {
+       console.log('graphQLErrors', graphQLErrors);
+      console.log('networkError', networkError); 
     }
-})
+});
 
 class App extends Component {
   render() {

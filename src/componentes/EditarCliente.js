@@ -11,7 +11,7 @@ class EditarCliente extends Component {
      }
     render() {
 
-            const { id } = this.props.match.params;
+            const {id}  = this.props.match.params;
         // console.log(id);
 
         return (
@@ -27,9 +27,8 @@ class EditarCliente extends Component {
                             console.log(data);
                             return (
                                 <FormularioEditarCliente
-                                    cliente = {data.getCliente}
+                                    cliente={data.getCliente}
                                     id
-                                
                                 />
                             )
                         }}

@@ -5,7 +5,7 @@ import {Mutation} from 'react-apollo';
 class FormularioEditarCliente extends Component {
 
     state =  {
-        cliente: this.props.cliente.id,
+        cliente: this.props.cliente,
         emails: this.props.cliente.emails
     }
 
@@ -37,7 +37,7 @@ class FormularioEditarCliente extends Component {
         
             const {emails} = this.state;
             // console.log(this.props);
-           
+            
             return (
                 <Mutation mutation={ACTUALIZAR_CLIENTE}>
 
@@ -45,20 +45,22 @@ class FormularioEditarCliente extends Component {
                         <form className="col-md-8 m-3" onSubmit={e => {
                             e.preventDefault();
 
-                            const {id} = this.state.cliente;
+                            const {id, nombre, apellido, empresa, edad, tipo} = this.state.cliente;
                             const {emails} = this.state;
-
-                           /*  const input = {
+                            const input = {
                                 id, 
                                 nombre,
                                 apellido,
                                 empresa,
                                 edad: Number(edad),
                                 tipo,
-                                emails 
+                                emails
                             
-                        }*/
-                            console.log(id);
+                        }
+                            actualizarCliente({
+                                variables:{input}
+                            });
+                           
                         }}>
                                 <div className="form-row">
                                     <div className="form-group col-md-6">
