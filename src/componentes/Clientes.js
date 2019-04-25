@@ -4,7 +4,7 @@ import{Link} from 'react-router-dom';
 
 
 import { CLIENTES_QUERY } from '../querys';
-import { ELIMINAR_QUERY } from '../mutations';
+import { ELIMINAR_CLIENTE } from '../mutations';
 
 const Contactos = () => (
     <Query query={CLIENTES_QUERY}  pollInterval={500} >
