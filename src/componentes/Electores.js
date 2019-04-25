@@ -4,7 +4,7 @@ import{Link} from 'react-router-dom';
 
 
 import { ELECTORES_QUERY } from '../querys';
-import { ELIMINAR_QUERY } from '../mutations';
+import { ELIMINAR_ELECTOR } from '../mutations';
 
 const Contactos = () => (
     <Query query={ELECTORES_QUERY} pollInterval={500}>
