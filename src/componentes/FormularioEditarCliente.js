@@ -57,7 +57,10 @@ class FormularioEditarCliente extends Component {
                                 emails
                             
                         }
-                            console.log(input);
+                        actualizarCliente({
+                            variables:{input}
+                        });
+                        
                         }}>
                                 <div className="form-row">
                                     <div className="form-group col-md-6">

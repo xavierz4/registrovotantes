@@ -59,7 +59,9 @@ class FormularioEditar extends Component {
                                 genero
                             
                         }
-                            console.log(input);
+                        actualizarElector({
+                            variables:{input}
+                        });
                         }}>  
 
                  
