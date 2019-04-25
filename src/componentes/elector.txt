@@ -233,3 +233,30 @@ class App extends Component {
 }
 
 export default App;
+
+mutation actualizarElector ($input: ElectorInput){
+  actualizarElector (input: $input){
+   id
+    nombre
+    apellido
+    cedula
+    edad
+    email
+    genero
+    
+  }
+}
+
+
+{
+  "input":{
+  "id": "5cbb41eaa553d41d489e8497",
+  "nombre":"Juan Carlos",
+  "apellido":"Ramiro Hernandez",
+  "cedula":17976287,
+  "edad": 20,
+  "email":"email",
+  "genero":"Masculino"
+  
+}
+}
