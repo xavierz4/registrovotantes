@@ -33,4 +33,12 @@ mutation actualizarElector ($input: ElectorInput){
 `;
 
 
+export const ELIMINAR_ELECTOR = gql`
+mutation eliminarCliente ($id: ID!){
+  eliminarCliente (id: $id)
+}
+
+`;
+
+
   

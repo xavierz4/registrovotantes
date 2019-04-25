@@ -41,7 +41,11 @@ class FormularioEditar extends Component {
             // const {emails} = this.state;
            
             return (
-                <Mutation mutation={ACTUALIZAR_ELECTOR}>
+                <Mutation mutation={ACTUALIZAR_ELECTOR}
+                onCompleted={() => this.props.refetch().then(() => {
+                    this.props.history.push('/')
+                })}
+                >
 
                    {actualizarElector =>(
                         <form className="col-md-8 m-3" onSubmit={e => {
