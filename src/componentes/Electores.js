@@ -5,6 +5,7 @@ import{Link} from 'react-router-dom';
 
 import { ELECTORES_QUERY } from '../querys';
 import { ELIMINAR_ELECTOR } from '../mutations';
+import Paginador from './Paginador';
 
 class Electores extends Component{
     state = {
@@ -62,7 +63,12 @@ class Electores extends Component{
                             </li>
                             )
                         })}
+                       
                     </ul>
+                    <Paginador
+                        actual ={this.state.paginador.actual}
+                    
+                    />
                 </Fragment>
                 
             )
@@ -72,5 +78,5 @@ class Electores extends Component{
         </Query>
      )
 }
-
+}
 export default Electores;
