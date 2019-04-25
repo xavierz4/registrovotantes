@@ -21,14 +21,14 @@ class EditarCliente extends Component {
 
                 <div className="row justify-content-center"> 
                     <Query query={CLIENTE_QUERY} variables= {{id}}>
-                        {({loading, error, data}) =>{
+                        {({loading, error, data, refetch}) =>{
                             if (loading) return 'cargando';
                             if (error) return `Error! ${error.message}`;
                             console.log(data);
                             return (
                                 <FormularioEditarCliente
                                     cliente={data.getCliente}
-                                    id
+                                    refetch={refetch}
                                 />
                             )
                         }}

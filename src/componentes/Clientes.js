@@ -4,6 +4,7 @@ import{Link} from 'react-router-dom';
 
 
 import { CLIENTES_QUERY } from '../querys';
+import { ELIMINAR_QUERY } from '../mutations';
 
 const Contactos = () => (
     <Query query={CLIENTES_QUERY}  pollInterval={500} >
@@ -24,6 +25,9 @@ const Contactos = () => (
                                     {item.nombre} {item.apellido} 
                                 </div>
                                 <div className="col-md-4 d-flex justify-content-end">
+                                <button type="button" className="btn btn-danger d-block d-mb-inline-block mr-2">
+                                    &times;Eliminar
+                                </button>
                                     <Link to={`/cliente/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Cliente</Link>
                                 
                                 </div>

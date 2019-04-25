@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {ACTUALIZAR_CLIENTE} from '../mutations';
 import {Mutation} from 'react-apollo';
+import { withRouter } from 'react-router-dom';
 
 class FormularioEditarCliente extends Component {
 
@@ -39,8 +40,12 @@ class FormularioEditarCliente extends Component {
             // console.log(this.props);
             
             return (
-                <Mutation mutation={ACTUALIZAR_CLIENTE}>
-
+                <Mutation mutation={ACTUALIZAR_CLIENTE}
+                onCompleted={() => this.props.refetch().then(() => {
+                    this.props.history.push('/')
+                })}
+                >
+                   
                     {actualizarCliente =>(
                         <form className="col-md-8 m-3" onSubmit={e => {
                             e.preventDefault();
@@ -197,4 +202,4 @@ class FormularioEditarCliente extends Component {
 }
  
 
-export default FormularioEditarCliente;
+export default withRouter (FormularioEditarCliente);
