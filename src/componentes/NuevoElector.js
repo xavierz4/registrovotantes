@@ -66,12 +66,12 @@ class NuevoElector extends Component {
                                 }}
                             
                             >
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                <div className="form-row">
+                                    <div className="form-group col-md-6">
                                         <label>Nombre</label>
                                             <input 
                                             type="text"
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="nombre"
                                             onChange={e =>{
                                                 this.setState({
@@ -83,11 +83,11 @@ class NuevoElector extends Component {
                                             }}
                                         />
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div className="form-group col-md-6">
                                         <label>Apellido</label>
                                         <input 
                                             type="text" 
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Apellido"
                                             onChange={e =>{
                                                 this.setState({
@@ -103,12 +103,12 @@ class NuevoElector extends Component {
                                     </div>
                                 </div>
                                 
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                <div className="form-row">
+                                    <div className="form-group col-md-6">
                                         <label>Cedula</label>
                                         <input 
                                             type="text" 
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Cedula" 
                                             onChange={e =>{
                                                 this.setState({
@@ -125,7 +125,7 @@ class NuevoElector extends Component {
                                         <label>Email</label>
                                         <input 
                                             type="email"
-                                            class="form-control"
+                                            className="form-control"
                                             placeholder="Email"
                                             onChange={e =>{
                                                 this.setState({
@@ -139,12 +139,12 @@ class NuevoElector extends Component {
                                     </div>
                                 </div>
 
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                <div className="form-row">
+                                    <div className="form-group col-md-6">
                                         <label>Edad</label>
                                         <input
                                             type="text"
-                                            class="form-control" 
+                                            className="form-control" 
                                             placeholder="Edad"
                                             onChange={e =>{
                                                 this.setState({
@@ -157,7 +157,7 @@ class NuevoElector extends Component {
                                         />
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div className="form-group col-md-6">
                                         <label>Genero</label>
                                         <select 
                                             onChange={e =>{
@@ -168,7 +168,7 @@ class NuevoElector extends Component {
                                                     }
                                                 })
                                             }}
-                                        class="form-control">
+                                         className="form-control">
                                         <option value="">Elegir</option>
                                         <option value="FEMENINO">FEMENINO</option>
                                         <option value="MASCULINO">MASCULINO</option>
