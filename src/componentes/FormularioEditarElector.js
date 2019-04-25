@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import {ACTUALIZAR_ELECTOR} from '../mutations';
 import {Mutation} from 'react-apollo';
+import { withRouter } from 'react-router-dom';
 
 class FormularioEditar extends Component {
 
@@ -206,4 +207,4 @@ class FormularioEditar extends Component {
 }
  
 
-export default FormularioEditar;
+export default  withRouter(FormularioEditar);
