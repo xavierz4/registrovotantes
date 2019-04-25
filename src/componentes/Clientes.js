@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import { Query, Mutation } from 'react-apollo';
 import{Link} from 'react-router-dom';
-
+import Paginador from './Paginador';
 
 import { CLIENTES_QUERY } from '../querys';
 import { ELIMINAR_CLIENTE } from '../mutations';
@@ -64,6 +64,10 @@ class Clientes extends Component{
                             )
                         })}
                     </ul>
+                    <Paginador
+                        actual ={this.state.paginador.actual}
+                    
+                    />
                 </Fragment>
                 
             )
@@ -77,4 +81,4 @@ class Clientes extends Component{
    
 }
 
-export default Clientes;
+export default Paginador;
