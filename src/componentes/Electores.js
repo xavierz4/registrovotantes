@@ -25,7 +25,11 @@ const Contactos = () => (
                                     {item.nombre} {item.apellido} 
                                 </div>
                                 <div className="col-md-4 d-flex justify-content-end">
-                                <button type="button" className="btn btn-danger d-block d-mb-inline-block mr-2">
+                                <button type="button" className="btn btn-danger d-block d-mb-inline-block mr-2"
+                                     onClick={() => {
+                                        console.log(item.id)
+                                    }}
+                                >
                                     &times;Eliminar
                                 </button>
                                     <Link to={`/elector/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Elector</Link>
