@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import{Link} from 'react-router-dom';
 
 
@@ -18,20 +18,31 @@ const Contactos = () => (
             <Fragment>
                 <h2 className="text-center">Listado Clientes</h2>
                 <ul className="list-group mt-4">
-                    {data.getClientes.map(item =>(
+                    {data.getClientes.map(item =>{
+                        const {id} = item;
+                        return(
                         <li key={item.id} className="list-group-item">
                             <div className="row justify-content-between aling-items-center">
                                 <div className="col-md-8 d-flex justify-content-between aling-items-center" >
                                     {item.nombre} {item.apellido} 
                                 </div>
                                 <div className="col-md-4 d-flex justify-content-end">
-                                <button type="button" className="btn btn-danger d-block d-mb-inline-block mr-2"
-                                    onClick={() => {
-                                        console.log(item.id)
-                                    }}
-                                >
-                                    &times;Eliminar
-                                </button>
+                                <Mutation mutation={ELIMINAR_CLIENTE}>
+                                    {eliminarCliente => (
+                                         <button type="button" className="btn btn-danger d-block d-mb-inline-block mr-2"
+                                            onClick={ () => {
+
+                                            if(window.confirm('Seguro que Deseas Eliminar este Cliente?')){
+                                                eliminarCliente({
+                                                    variables: {id}
+                                                })
+                                            }
+                                            }}
+                                            >
+                                            &times; Eliminar
+                                        </button>
+                                    )}
+                                </Mutation>
                                     <Link to={`/cliente/editar/${item.id}`} className="btn btn-success d-block d-med-inline-block"> Editar Cliente</Link>
                                 
                                 </div>
@@ -39,7 +50,8 @@ const Contactos = () => (
                             </div>
                         
                         </li>
-                    ))}
+                        )
+                    })}
                 </ul>
             </Fragment>
             
