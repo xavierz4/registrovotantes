@@ -28,7 +28,7 @@ class Electores extends Component{
         this.setState({
             paginador: {
                 offset: this.state.paginador.offset + this.limite,
-                actual: this.state.paginador.actual +1
+                actual: this.state.paginador.actual + 1
             }
         })
     }
