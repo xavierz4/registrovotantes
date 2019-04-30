@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import { Query, Mutation } from 'react-apollo';
 import{Link} from 'react-router-dom';
+import Paginador from './Paginador';
 
 
 import { ELECTORES_QUERY } from '../querys';
 import { ELIMINAR_ELECTOR } from '../mutations';
-import Paginador from './Paginador';
+
 
 class Electores extends Component{
 
@@ -38,7 +39,7 @@ class Electores extends Component{
     render(){
 
      return(
-        <Query query={ELECTORES_QUERY} pollInterval={500}  variables={{limite: this.limite, offset: this.state.paginador.offset}}>
+        <Query query={ELECTORES_QUERY} pollInterval={500}  variables={{limite: this.limite, offset: this.state.paginador.offset}} >
             {({ loading, error, data, startPolling, stopPolling }) => {
                 if(loading) return "cargando...";
                 if (error) return `Error: ${error.message}`;
