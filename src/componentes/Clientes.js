@@ -22,7 +22,7 @@ class Clientes extends Component{
             {({ loading, error, data,  startPolling, stopPolling }) => {
                 if(loading) return "cargando...";
                 if (error) return `Error: ${error.message}`;
-                console.log(data.getClientes);
+                console.log(data);
     
                 
             return(
@@ -81,4 +81,4 @@ class Clientes extends Component{
    
 }
 
-export default Paginador;
+export default Clientes;
