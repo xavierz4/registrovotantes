@@ -36,7 +36,7 @@ class Electores extends Component{
     render(){
 
      return(
-        <Query query={ELECTORES_QUERY} pollInterval={500} variables={this.}>
+        <Query query={ELECTORES_QUERY} pollInterval={500}  variables={{limite: this.limite, offset: this.state.paginador.offset}}>
             {({ loading, error, data, startPolling, stopPolling }) => {
                 if(loading) return "cargando...";
                 if (error) return `Error: ${error.message}`;
@@ -87,6 +87,8 @@ class Electores extends Component{
                         actual ={this.state.paginador.actual}
                         totalElectores = {data.totalElectores}
                         limite = {this.limite}
+                        paginaAnterior={this.paginaAnterior}
+                        paginaSiguiente={this.paginaSiguiente}
                     />
                 </Fragment>
                 
