@@ -8,7 +8,9 @@ import { ELIMINAR_ELECTOR } from '../mutations';
 import Paginador from './Paginador';
 
 class Electores extends Component{
+
     limite = 10;
+
     state = {
         paginador:{
             offset:0,
@@ -40,7 +42,7 @@ class Electores extends Component{
             {({ loading, error, data, startPolling, stopPolling }) => {
                 if(loading) return "cargando...";
                 if (error) return `Error: ${error.message}`;
-                console.log(data.getElectores);
+                console.log(data);
 
                 
             return(
