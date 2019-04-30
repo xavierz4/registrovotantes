@@ -36,7 +36,7 @@ class Electores extends Component{
     render(){
 
      return(
-        <Query query={ELECTORES_QUERY} pollInterval={500}>
+        <Query query={ELECTORES_QUERY} pollInterval={500} variables={this.}>
             {({ loading, error, data, startPolling, stopPolling }) => {
                 if(loading) return "cargando...";
                 if (error) return `Error: ${error.message}`;
