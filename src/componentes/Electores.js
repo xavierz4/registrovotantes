@@ -67,7 +67,7 @@ class Electores extends Component{
                     </ul>
                     <Paginador
                         actual ={this.state.paginador.actual}
-                    
+                        totalCientes = {data.totalClientes}
                     />
                 </Fragment>
                 
