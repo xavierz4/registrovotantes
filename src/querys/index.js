@@ -1,14 +1,16 @@
 import gql from 'graphql-tag';
 
 export const  ELECTORES_QUERY = gql `
-{
-    getElectores{
-      id
-      nombre
-      apellido
-      cedula
-    }
-  }`;
+   query getElectores($limite:Int, $offset:Int){
+      getElectores(limite:$limite, offset: $offset){
+        id
+        nombre
+        apellido
+        cedula
+      }
+        totalElectores
+     }
+  `;
 
 
 export const  ELECTOR_QUERY = gql `
