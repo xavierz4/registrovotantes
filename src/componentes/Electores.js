@@ -16,6 +16,18 @@ class Electores extends Component{
         }
     }
 
+    paginaAnterior = () =>{
+        console.log('anterior..')
+    }
+    paginaSiguiente = () =>{
+        this.setState({
+            paginador: {
+                offset: this.state.paginador.offset + this.limite,
+                actual: this.state.paginador.actual +1
+            }
+        })
+    }
+
     render(){
 
      return(
