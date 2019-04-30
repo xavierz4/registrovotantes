@@ -8,6 +8,7 @@ import { ELIMINAR_ELECTOR } from '../mutations';
 import Paginador from './Paginador';
 
 class Electores extends Component{
+    limite = 10;
     state = {
         paginador:{
             offset:0,
@@ -67,7 +68,8 @@ class Electores extends Component{
                     </ul>
                     <Paginador
                         actual ={this.state.paginador.actual}
-                        totalCientes = {data.totalClientes}
+                        totalElectores = {data.totalElectores}
+                        limite = {this.limite}
                     />
                 </Fragment>
                 
