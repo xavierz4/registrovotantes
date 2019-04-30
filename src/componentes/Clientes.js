@@ -8,6 +8,7 @@ import { ELIMINAR_CLIENTE } from '../mutations';
 
 class Clientes extends Component{
 
+    limite = 10;
     state = {
         paginador:{
             offset:0,
@@ -66,7 +67,8 @@ class Clientes extends Component{
                     </ul>
                     <Paginador
                         actual ={this.state.paginador.actual}
-                        totalCientes = {data.totalClientes}
+                        totalClientes = {data.totalClientes}
+                        limite = {this.limite}
                     
                     />
                 </Fragment>
